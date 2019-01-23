@@ -18,10 +18,33 @@
 </head>
 <body>
 
-<jv-modal></jv-modal>
+<jv-modal>
+  <h1 slot="title">Please Confirm</h1>
+  <p>With your confirmation, you agree to pay the full amount!</p>
+</jv-modal>
 <p>Please confirm your choice</p>
 <button>Show Details & Confirm</button>
 
 <script src="custom-modal.js"></script>
+
+<!-- Add functionality to my button to control the modal-->
+<script>
+  const confirmBtn = document.querySelector('button');
+  const modal = document.querySelector('jv-modal');
+  confirmBtn.addEventListener('click', () => {
+    // modal.setAttribute('opened', '');
+    modal.open();
+  });
+
+  // My custom events.
+  modal.addEventListener('cancel', () => {
+    console.log('Cancelled...');
+  });
+
+  modal.addEventListener('confirm', () => {
+    console.log('Confirmed!!!');
+  });
+</script>
+
 </body>
 </html>
