@@ -1,17 +1,25 @@
 class CustomModal extends HTMLElement {
   constructor() {
     super();
-    this._text = 'hi';
     this.attachShadow({ mode: 'open' });
   
     this.shadowRoot.innerHTML = `
       <style>
-      
+        #backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, .75);
+        }
       </style>
-      <button>Show</button>
-      <p>
-          <span><slot></slot></span>
-      </p>
+      <div id="backdrop">
+      
+      </div>
+      <div id="modal">
+      
+      </div>
     `;
   }
 }
